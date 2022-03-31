@@ -52,7 +52,6 @@ function ModuleLoader({
 }
 
 function useModuleLoader(importName: string) {
-  console.log("useModuleLoader called");
   const imports = React.useContext(ModuleLoaderContext);
   if (imports == null) {
     throw new Error(
