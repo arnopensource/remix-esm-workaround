@@ -1,25 +1,25 @@
 # Remix ESM module workaround
 
-
+![A screenshot showing an exemple from the react flow library working with remix](img.png)
 
 Run it with `npm run dev`
 
 ## Files added
 
-- [`esm-module.ts`](#)
-    Stores the dynamic imports of the ESM modules
+- [`esm-module.ts`](https://github.com/abc3354/remix-esm-workaround/blob/main/esm-module.ts)
+    stores the dynamic imports of the ESM modules
 
 
-- [`app/moduleLoader.tsx`](#)
-    Exports a wrapper element called `ModuleLoader` and a hook called `useModuleLoader`
+- [`app/moduleLoader.tsx`](https://github.com/abc3354/remix-esm-workaround/blob/main/app/moduleLoader.tsx)
+    exports a wrapper element called `ModuleLoader` and a hook called `useModuleLoader`
 
   
-- [`app/components/flow.tsx`](#)
-    Is [React Flow first example](https://reactflow.dev/docs/examples/overview/), modified with `useModuleLoader`
+- [`app/components/flow.tsx`](https://github.com/abc3354/remix-esm-workaround/blob/main/app/components/flow.tsx)
+    is [React Flow first example](https://reactflow.dev/docs/examples/overview/), modified with `useModuleLoader`
 
 
-- [`app/components/initial-elements.tsx`](#)
-    Is also from the React Flow example, note that `initialEdges` have been modified
+- [`app/components/initial-elements.tsx`](https://github.com/abc3354/remix-esm-workaround/blob/main/app/components/initial-elements.tsx)
+    is also from the React Flow example, note that `initialEdges` have been modified
     to receive the `ReactMarker` enum since it can't fetch it itself
 
 ## Usage
@@ -41,9 +41,10 @@ const OverviewFlow = () => {
       } = useModuleLoader("react-flow-renderer") as any;
     
     // ...
+}
 ```
 
-*From [app/components/flow.tsx](#)*
+*From [app/components/flow.tsx](https://github.com/abc3354/remix-esm-workaround/blob/main/app/components/flow.tsx)*
 
 ### Wrapping 
 
@@ -56,7 +57,7 @@ The string used as index will be used as the argument for `useModuleLoader`
 </ModuleLoader>
 ```
 
-*From [app/routes/index.tsx](#)*
+*From [app/routes/index.tsx](https://github.com/abc3354/remix-esm-workaround/blob/main/app/routes/index.tsx)*
 
 ### Dynamics imports
 
@@ -66,7 +67,7 @@ module.exports = {
 };
 ```
 
-*From [esm-module.ts](#)*
+*From [esm-module.ts](https://github.com/abc3354/remix-esm-workaround/blob/main/esm-module.ts)*
 
 ## Additionnal information
 
@@ -78,7 +79,7 @@ However, you can import types using a regular static import statement without cr
 - you are not importing the same type with `useModuleLoader`
 - you are using the imported type only for type checking with typescript
 
-Example in [app/components/flow.tsx](#)
+Example in [app/components/flow.tsx](https://github.com/abc3354/remix-esm-workaround/blob/main/app/components/flow.tsx)
 
 ```tsx
 import type { ReactFlowInstance, OnConnect, Edge, Node } from "react-flow-renderer";
@@ -88,4 +89,3 @@ import type { ReactFlowInstance, OnConnect, Edge, Node } from "react-flow-render
 const onConnect: OnConnect = (params) =>
     setEdges((eds: Edge[]) => addEdge(params, eds));
 ```
-# remix-esm-workaround
