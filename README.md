@@ -1,5 +1,12 @@
 # Remix ESM module workaround
 
+## Important note : not useful anymore for React Flow
+React flow can now be imported normally into remix, see https://github.com/wbkd/react-flow/issues/1953#issuecomment-1095137621m
+
+The fix can be still useful for other packages
+
+---
+
 ![A screenshot showing an exemple from the react flow library working with remix](img.png)
 
 Run it with `npm run dev`
