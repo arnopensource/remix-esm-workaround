@@ -32,7 +32,7 @@ function ModuleLoader({
   React.useEffect(() => {
     Promise.all(
       Object.keys(imports).map(async (importName) => ({
-        name: "react-flow-renderer",
+        name: importName,
         content: await imports[importName](),
       }))
     ).then(
